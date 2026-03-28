@@ -1,0 +1,33 @@
+name: Update AI Feed
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # 每6小時更新
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+
+    - name: Install deps
+      run: pip install feedparser requests
+
+    - name: Run script
+      run: python ai_tips_rss_personal.py fetch
+
+    - name: Commit & push
+      run: |
+        git config --global user.name "bot"
+        git config --global user.email "bot@example.com"
+        git add feed.xml
+        git commit -m "update feed" || echo "no changes"
+        git push
