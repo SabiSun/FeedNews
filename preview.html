@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AI Tips Feed</title>
+</head>
+<body>
+  <h1>AI Tips 精選</h1>
+  <p><a href="feed.xml">👉 RSS Feed</a></p>
+
+  <div id="content">Loading...</div>
+
+  <script>
+    fetch("feed.xml")
+      .then(res => res.text())
+      .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+      .then(data => {
+        const items = data.querySelectorAll("item");
+        let html = "<ul>";
+        items.forEach(el => {
+          html += `
+            <li>
+              <a href="${el.querySelector("link").textContent}" target="_blank">
+                ${el.querySelector("title").textContent}
+              </a>
+              <br/>
+              ${el.querySelector("description").textContent}
+            </li>
+          `;
+        });
+        html += "</ul>";
+        document.getElementById("content").innerHTML = html;
+      });
+  </script>
+</body>
+</html>

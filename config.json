@@ -1,0 +1,64 @@
+{
+  "site_title": "AI Tips Personal Feed",
+  "site_link": "http://127.0.0.1:8088/feed.xml",
+  "site_description": "A personal RSS feed focused on practical AI tips, tutorials, and techniques.",
+  "feed_limit": 50,
+  "refresh_minutes": 120,
+  "sources": [
+    {
+      "name": "OpenAI News",
+      "url": "https://openai.com/news/rss.xml",
+      "kind": "rss"
+    },
+    {
+      "name": "Hugging Face Blog",
+      "url": "https://huggingface.co/blog/feed.xml",
+      "kind": "rss"
+    },
+    {
+      "name": "arXiv cs.AI",
+      "url": "https://export.arxiv.org/rss/cs.AI",
+      "kind": "rss"
+    },
+    {
+      "name": "arXiv cs.LG",
+      "url": "https://export.arxiv.org/rss/cs.LG",
+      "kind": "rss"
+    },
+    {
+      "name": "arXiv stat.ML",
+      "url": "https://export.arxiv.org/rss/stat.ML",
+      "kind": "rss"
+    }
+  ],
+  "include_keywords": [
+    "tutorial",
+    "how to",
+    "guide",
+    "prompt",
+    "prompting",
+    "workflow",
+    "agent",
+    "rag",
+    "fine-tuning",
+    "finetuning",
+    "embedding",
+    "evaluation",
+    "optimization",
+    "inference",
+    "deployment",
+    "onnx",
+    "edge ai",
+    "llm",
+    "ai"
+  ],
+  "exclude_keywords": [
+    "job",
+    "hiring",
+    "funding",
+    "acquisition",
+    "press release",
+    "company announcement",
+    "conference recap"
+  ]
+}
